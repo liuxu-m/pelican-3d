@@ -821,6 +821,7 @@ renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = 0.98;
+renderer.info.autoReset = false;   // accumulate per-frame stats across the whole composer chain
 
 const scene = new THREE.Scene();
 scene.fog = new THREE.Fog(0x9fc4e0, 55, 620);
@@ -1545,6 +1546,7 @@ const PEDAL_L = new THREE.Vector3(), PEDAL_R = new THREE.Vector3();
 const _v1 = new THREE.Vector3(), _v2 = new THREE.Vector3(), _v3 = new THREE.Vector3();
 
 function step(dt){
+  renderer.info.reset();
   if (state.paused) dt = 0; else T += dt;
   if (dt > 0){ grade.uniforms.uTime.value = T; }
 

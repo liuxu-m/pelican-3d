@@ -873,7 +873,7 @@ scene.add(hemi);
 // Image-based lighting for the metal, generated at runtime (no HDR file needed).
 try {
   const pmrem = new THREE.PMREMGenerator(renderer);
-  const envRT = pmrem.fromScene(new RoomEnvironment(), 0.05);
+  const envRT = pmrem.fromScene(new RoomEnvironment(), 0.03);
   scene.environment = envRT.texture;
   if ('environmentIntensity' in scene) scene.environmentIntensity = 0.34;
   pmrem.dispose();
